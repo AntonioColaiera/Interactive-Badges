@@ -1,0 +1,23 @@
+{
+  "name": "badges-renoon",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "concurrently \"npm run watch-pug\" \"npm run watch-sass\"",
+    "build-pug": "pug src -o public --watch",
+    "build-sass": "node-sass --output-style compressed -o public/css src/scss",
+    "watch-pug": "npm run build-pug -- --watch",
+    "watch-sass": "npm run build-sass -- --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "concurrently": "^8.2.1",
+    "node-sass": "^9.0.0",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}

@@ -1,0 +1,41 @@
+// Single badge 
+
+mixin badge(badgeData)
+  .badge.hover-effect(class=badgeData.class)
+    img(src=badgeData.image, alt=badgeData.alt)
+    .span= badgeData.badge
+     .verification
+      img(src="images/green-icon.svg", alt="Check") 
+      .span Verifiable
+    img(src="images/arrow.svg", alt="Arrow")
+    .information= badgeData.information
+    
+ 
+
+mixin badges(badgesData)
+  .badges
+    .description= badgesData.description
+    .badge-row
+      each badgeDataItem in badgesData.badge
+        +badge(badgeDataItem)
+    #information  
+
+
+
+doctype html
+html
+  head
+    title Mixins in Pug
+    link(rel="stylesheet" href="css/badges.css")
+    script(src="js/badges.js")
+
+
+  body
+     
+
+   
+
+    - const badge1 = { description: "Transparency is an important part of our philosophy which is why we have partnered with Renoon to provide you with precise information about our values.", badge: [ { image: "images/cow.svg", alt: "Animal welfare", badge: "Animal welfare", information:"This product contains NATIVA Merino Woool, a branded fiber from certified farms that comply with strict animal welfare, land management and ethical work policies ensured by tri-annual audits. This material has been chosen to work together with an organisation that, on top of the above, also provides stress-free shearing and the prohibition of mulesing." }, { image: "images/blockchain.svg", alt: "Blockchain traced", badge: "Blockchain traced", information:"Blockchain traced verification ensures the transparency and authenticity of products, utilizing blockchain technology to track and verify every step of a product's journey, providing confidence in its origin and quality." } ] }
+
+
+    +badges(badge1)
